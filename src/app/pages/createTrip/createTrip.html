@@ -1,0 +1,90 @@
+<!--<ion-header>
+  <ion-toolbar>
+    <ion-title *ngIf="isDriver">Création d'un trajet</ion-title>
+    <ion-title *ngIf="isPassenger">Invité(e) dans ce trajet</ion-title>
+  </ion-toolbar>
+
+</ion-header>-->
+
+<ion-content padding>
+<!--
+  <ion-card-content>
+      <ion-item>
+        <ion-label>Je suis le chauffeur</ion-label>
+        <ion-checkbox [(ngModel)]="isDriver" ngDefaultControl (ionChange)="driverCheckboxClick($event)" [disabled]="true"></ion-checkbox>
+      </ion-item>
+  </ion-card-content>
+
+  <ion-card-content>
+    <ion-item>
+      <ion-label>Interval de capture (en ms) : </ion-label>
+      <ion-input disabled type="number" [(ngModel)]="intervalTime">
+      </ion-input>
+    </ion-item>
+  </ion-card-content>
+
+  <ion-title *ngIf="isDriver">Création d'un trajet</ion-title>
+  <ion-title *ngIf="isPassenger">Invité(e) dans ce trajet</ion-title>
+-->
+  <div class="titleContainer">
+    <div *ngIf="isDriver" class="pageTitle">Travel creation</div>
+    <div *ngIf="isPassenger" class="pageTitle">Guess on this travel</div>
+  </div>
+
+  <div class="splitScreenBackground">
+    <ion-card-content>
+      <ion-item style="padding-top: 25%;" class="labelColor" [ngClass]="usecaseEmpty ? 'red-border-bottom' : ''">
+        <ion-label>Use case :</ion-label>
+        <ion-input [disabled]="useCaseDisabled" readonly [(ngModel)]="selectedUseCase.label" (click)="openUsecaseModal()">
+        </ion-input>
+      </ion-item>
+    </ion-card-content>
+  </div>
+  <div *ngIf="isDriver">
+    <div style="padding-bottom: 15%;" class="splitScreenBackground">
+      <ion-card-content>
+        <ion-item>
+          <ion-label class="labelColor">My passengers</ion-label>
+        </ion-item>
+      </ion-card-content>
+    </div>
+
+    <div class="lst-card-container">
+      <ion-card *ngFor="let user of usersFiltered" class="card-container-row" >
+        <ion-card-header>
+          <ion-card-title>{{user.username}}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-button [disabled]="passengersDisabled" color="{{userAlreadySelected(user) ? 'success' : 'light'}}" (click)="userAlreadySelected(user) || selectedUseCase.id < 0 ? selectPassenger(user, $event) : sendInvitationConfirmation(user, $event)" id="{{user.id}}"><ion-icon name="{{userAlreadySelected(user) ? 'checkmark' : 'add-circle-outline'}}"></ion-icon></ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <div class="startBtnContainer">
+      <ion-button [ngClass]="{'btnColorStop': start, 'btnColorStart': !start}" [attr.disabled]="selectedUsers.length < 1 || selectedUseCase.id == -1" (click)="toggleStart()">{{start ? stopBtnTxt : startBtnTxt}}</ion-button>
+    </div>
+  </div>
+
+
+  <div *ngIf="isPassenger" class="driver-title-container">
+    <ion-card-content>
+      <ion-item>
+        <ion-label  class="labelColor">The driver</ion-label>
+      </ion-item>
+    </ion-card-content>
+
+    <div class="lst-card-container" style="margin-top: 3%;">
+      <ion-card class="card-container-row" >
+        <ion-card-header>
+          <ion-card-title>{{driver.username}}</ion-card-title>
+        </ion-card-header>
+      </ion-card>
+    </div>
+
+    <div class="startBtnContainer">
+      <ion-button [ngClass]="{'btnColorStop': start, 'btnColorStart': !start}" (click)="toggleStart()">{{start ? stopBtnTxt : startBtnTxt}}</ion-button>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,42 @@
+main{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+ion-content{
+  --ion-background-color: #434B59;
+}
+
+ion-input{
+  background-color: white;
+  border-radius: 20px;
+  text-align: center;
+  max-height: 40px;
+  max-width: 75%;
+  margin-bottom: 5%;
+}
+
+ion-button{
+  max-width: 75%;
+  min-width: 75%;
+  --border-radius: 20px;
+  --background: linear-gradient(to right, #43CEFF ,#43CE5B)
+}
+
+.title{
+  width: 42%;
+  margin-bottom: 10%;
+  margin-top: 3%;
+}
+
+.logo{
+  width: 35%;
+  margin-top: -25%;
+}
+
+.spinner{
+  --color: #43CE5B;
+  width: 20%;
+  height: 20%;
+}

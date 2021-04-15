@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="login.page.scss">
+<ion-content class="background-content">
+
+
+  <div style="height: 100%; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+    <ion-img class="logo" src="assets/loginIcon.png"></ion-img>
+    <ion-img class="title" src="assets/loginTitle.png"></ion-img>
+
+    <ion-input *ngIf="!isLogging" (ionBlur)="usernameInputClick($event)" (click)="usernameInputClick($event)" [(ngModel)]="username" [placeholder]="currentPlaceHolder"></ion-input>
+    <ion-button *ngIf="!isLogging" (click)="login()">Login</ion-button>
+    <ion-spinner *ngIf="isLogging" name="crescent" class="spinner"></ion-spinner>
+
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,23 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="dark" (click)="closeModal()">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Choose use case</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card-content>
+    <ion-radio-group [(ngModel)]="selectedUseCase" (ionChange)="radioChecked($event)">
+      <ion-item *ngFor="let useCase of useCases">
+        <ion-label text-wrap style="text-align: justify; margin-right: 20px;"> {{useCase.label}}</ion-label>
+        <ion-radio [value]="useCase"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-card-content>
+</ion-content>

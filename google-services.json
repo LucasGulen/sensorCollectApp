@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "270263205644",
+    "firebase_url": "https://sensor-collection.firebaseio.com",
+    "project_id": "sensor-collection",
+    "storage_bucket": "sensor-collection.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270263205644:android:2dfb0b38f25f027205d329",
+        "android_client_info": {
+          "package_name": "com.gulen.sensorsCollection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "270263205644-87inpcqamilmeqminha4uivi5tt0mjk2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaRsvZRCtrs-lEHdxl6dpc749maODgwWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270263205644-87inpcqamilmeqminha4uivi5tt0mjk2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
